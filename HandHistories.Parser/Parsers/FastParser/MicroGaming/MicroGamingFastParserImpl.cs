@@ -215,7 +215,7 @@ namespace HandHistories.Parser.Parsers.FastParser.MicroGaming
                 {
                     var cards = ParseCardsFromLines(handLines, ref i);
 
-                    return HoleCards.FromCards(playerName, cards.ToArray());
+                    return HoleCards.FromCards(cards.ToArray());
                 }
             }
             return null;
@@ -680,7 +680,7 @@ namespace HandHistories.Parser.Parsers.FastParser.MicroGaming
                 var cards = ParseCardsFromLines(handLines, ref heroCardsIndex);
 
                 var player = playerList.FirstOrDefault(p => p.SeatNumber == heroSeat);
-                player.HoleCards = HoleCards.FromCards(player.PlayerName, cards.ToArray());
+                player.HoleCards = HoleCards.FromCards(cards.ToArray());
             }
 
             foreach (Player player in playerList)

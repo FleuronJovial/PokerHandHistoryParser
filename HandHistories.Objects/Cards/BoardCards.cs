@@ -52,7 +52,7 @@ namespace HandHistories.Objects.Cards
             return new BoardCards(card1, card2, card3, card4, card5);
         }
 
-        public static BoardCards FromCards(string cards)
+        public static BoardCards FromCards(ReadOnlySpan<char> cards)
         {
             return FromCards(Parse(cards));
         }
@@ -73,7 +73,6 @@ namespace HandHistories.Objects.Cards
                 case Street.Turn:
                     return BoardCards.ForTurn(this[0], this[1], this[2], this[3]);
                 case Street.River:
-                case Street.Showdown:
                     return BoardCards.ForRiver(this[0], this[1], this[2], this[3], this[4]);
                 default:
                     throw new ArgumentException("Can't get board in for null street");

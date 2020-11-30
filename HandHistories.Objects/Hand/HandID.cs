@@ -17,7 +17,7 @@ namespace HandHistories.Objects.Hand
             return value;
         }
 
-        public static long[] Parse(string value)
+        public static long[] Parse(ReadOnlySpan<char> value)
         {
             return new long[] { long.Parse(value) };
         }

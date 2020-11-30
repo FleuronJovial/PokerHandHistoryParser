@@ -1,13 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 
 namespace HandHistories.Objects.Cards
 {
-    [DebuggerDisplay("{ToString()}")]
     [DataContract]
     public abstract class CardGroup : IEnumerable<Card>
     {
@@ -24,25 +22,25 @@ namespace HandHistories.Objects.Cards
             }
         }
 
-        public static Card[] Parse(string cards)
+        public static Card[] Parse(ReadOnlySpan<char> cards)
         {
             if (cards == null)
             {
                 return new Card[] {};
             }
 
-            List<Card> cardsList = new List<Card>(2);
+            List<Card> cardsList = new List<Card>(5);
             for (int i = 0; i < cards.Length; i++)
             {
                 if (cards[i] == ' ' || cards[i] == ',')
                 {
                     continue;
                 }
-               cardsList.Add(new Card(cards[i++], cards[i]));
+                cardsList.Add(new Card(cards[i++], cards[i]));
             }
 
             return cardsList.ToArray();
-        }
+        }        
 
         public void AddCard(Card card)
         {

@@ -335,7 +335,7 @@ namespace HandHistories.Parser.Parsers.JSONParser.IGT
 
         static HoleCards ParseHoleCards(JToken JSON)
         {
-            return HoleCards.FromCards(null, JSON.Select(ParseCard).ToArray());
+            return HoleCards.FromCards(JSON.Select(ParseCard).ToArray());
         }
 
         protected override int ParseDealerPosition(JObject JSON)

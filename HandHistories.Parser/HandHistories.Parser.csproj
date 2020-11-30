@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <Folder Include="Parsers\SpanParser\Base\" />
+    <Folder Include="Utils\Extensions\" />
   </ItemGroup>
 
 </Project>

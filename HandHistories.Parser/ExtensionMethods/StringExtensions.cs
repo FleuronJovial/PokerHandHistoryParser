@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Globalization;
+using HandHistories.Parser.Utils;
 
 namespace HandHistories.Parser.Utils.Extensions
 {
     public static class StringExtensions
     {
+        internal static SpanParser AsSpanParser(this string str) => new SpanParser(str);
         public static int LastIndexLoopsBackward(this string str, char c, int lastIndex)
         {
             for (int i = lastIndex; i >= 0; i--)
